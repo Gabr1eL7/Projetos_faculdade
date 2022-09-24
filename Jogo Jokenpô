@@ -1,1 +1,81 @@
+//Nesse projeto foi pedido alguns critérios para funcionamento: numero de rodadas, placar e um loop.  
 
+import java.util.Scanner;
+
+
+
+public class Jokenpô {
+
+    private static int placarJogador = 0;
+	private static int placarComputador = 0;
+    private static int escolhaComputador;
+    private static int escolhaJogador;
+   
+    public static void main(String[] args) throws Exception {
+     Scanner scan = new Scanner(System.in);
+     int rodadas = 0;
+     
+     
+
+     System.out.println("  BEM VINDOS AO JOGO   ");
+     System.out.println("=-=-=-=-=-J O K E N P Ô=-=-=-==-");
+     System.out.println("Deseja jogar quantas rodadas?");
+     rodadas = scan.nextInt();
+    
+
+     
+     while(rodadas>=1){
+
+            
+            for(int i = 1; i<= rodadas; ++i) {
+                escolhaComputador = (int) (Math.random()*3)+1;
+                rotuloEscolhaJogador();
+                escolhaJogador = scan.nextInt(); 
+                verificaResultado();
+                exibePlacar();
+            
+            }
+       
+        System.out.println("Deseja jogar novamente?");
+        System.out.println("(1)SIM (0)NÃO");
+        rodadas = scan.nextInt();
+     }
+    }
+   
+
+    public static void rotuloEscolhaJogador() {
+    System.out.println(": : :JOGADOR, INSIRA: : : :");
+    System.out.println(" 1 - Pedra - 1");
+    System.out.println(" 2 - Papel - 2 ");
+    System.out.println(" 3 - Tesoura - 3 ");
+    System.out.println("::: Escolha sua opção:");
+    
+}
+
+public static void verificaResultado() {
+    //Scanner scan = new Scanner(System.in);
+
+
+   if(escolhaJogador==1 && escolhaComputador==3) {
+  placarJogador++;
+    //System.out.println("Jogador ganhou");
+   }else if(escolhaJogador==3 && escolhaComputador==2){
+    placarJogador++;
+        //System.out.println("Jogador ganhou");
+    }else if(escolhaJogador==2 && escolhaComputador==1){
+        placarJogador++;
+        //System.out.println("Jogador ganhou");
+    }else{
+        placarComputador++;
+        //System.out.println("Maquina ganha");
+    }
+    }
+
+    public static void exibePlacar() {
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println(": : : P L A C A R : : :");
+        System.out.println("Maquina: " + placarComputador + " Jogador: " + placarJogador);
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-");
+	
+	}
+}
