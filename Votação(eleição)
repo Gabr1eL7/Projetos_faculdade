@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+
+public class votação {
+
+    
+   
+    public static void main(String[] args) throws Exception {
+     Scanner scan = new Scanner(System.in);
+
+     System.out.println("Quantos votos o candidato 1 recebeu? ");
+     int cand1 = scan.nextInt();
+
+     System.out.println("Quantos votos o candidato 2 recebeu? ");
+     int cand2 = scan.nextInt();
+
+     System.out.println("Quantos votos o candidato 3 recebeu? ");
+     int cand3 = scan.nextInt();
+
+     System.out.println("Quantos votos o candidato 4 recebeu? ");
+     int cand4 = scan.nextInt();
+
+     System.out.println("Votos nulos? ");
+     int nulo = scan.nextInt();
+     System.out.println("Votos brancos? ");
+     int branco = scan.nextInt();
+
+    //condições para eleições
+        if(cand1>cand2 && cand1>cand3 && cand1>cand4){
+            System.out.println("Candidado 1 GANHOU !");
+
+        }else if(cand2>cand1 && cand2>cand3 && cand2>cand4){
+            System.out.println("Candidado 2 GANHOU !");
+
+        }else if(cand3>cand2 && cand3>cand1 && cand3>cand4){
+            System.out.println("Candidado 3 GANHOU !");
+
+        }else if(cand4>cand2 && cand4>cand3 && cand4>cand1){
+            System.out.println("Candidado 4 GANHOU !");
+        }
+
+ // Computação de votos
+System.out.println("***********************************");
+      
+        int total = cand1 + cand2 + cand3 + cand4 + nulo + branco;
+
+        int porCand1 = 100 * cand1 / total;
+        System.out.println("O candidato 1 recebeu " +cand1+ " votos, totalizando: " + porCand1 + "%" + " dos votos!");
+        int porCand2 = 100 * cand2 / total;
+        System.out.println("O candidato 2 recebeu " +cand2+ " votos, totalizando: " + porCand2 + "%" + " dos votos!");
+        int porCand3 = 100 * cand3 / total;
+        System.out.println("O candidato 3 recebeu " +cand3+ " votos, totalizando: " + porCand3 + "%" + " dos votos!");
+        int porCand4 = 100 * cand4 / total;
+        System.out.println("O candidato 4 recebeu " +cand4+ " votos, totalizando: " + porCand4 + "%" + " dos votos!");
+        int porBranco = 100 * branco / total;
+        System.out.println(porBranco + "%" + " dos votos foram BRANCOS!");
+        int porNulo = 100 * nulo/ total;
+        System.out.println(porNulo + "%" + " dos votos foram NULOS");
+
+    }
+}
