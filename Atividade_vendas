@@ -1,0 +1,46 @@
+#include <stdio.h>
+#define TAM 10
+
+int main() {
+  float valor[TAM], mult[TAM];
+  int i, qtd[TAM], qtdTotal;
+   float  valorTotal, comissao;
+  
+    printf("Informe a quantidade e os valores respectivos das vendas \n");
+
+  for(i = 0; i < TAM ; i++){
+    printf("Informe a quantidade: \n");
+  scanf("%d", &qtd[i]);
+    printf("Informe o valor do produto: \n");
+  scanf("%f", &valor[i]);    
+  }
+
+  printf("Ordem atual dos itens informados: \n");
+ for(i=0 ; i<TAM; i++){
+ printf("Qtd: %d Valor: R$%.2f \n", qtd[i], valor[i]);
+    }
+
+ for(i=0 ; i<TAM; i++){
+    mult[i] = qtd[i] * valor[i];
+  }
+  
+   printf("\n");
+  
+   for(i=0 ; i<TAM; i++){
+  printf("Total da %dª venda: R$%.2f \n", i+1, mult[i]);
+    }
+  
+
+  for(i=0 ; i<TAM ;i++){
+    valorTotal += mult[i];
+    qtdTotal +=qtd[i];
+    }
+    printf("\n");
+    printf("Foram vendidos %d produtos. Total da venda: R$ %.2f \n",qtdTotal, valorTotal);
+
+  printf("\nCOMISSÃO VENDA\n");
+  
+  comissao = valorTotal * 0.05;
+  printf("\n A comissão de venda foi: R$%.2f\n", comissao);
+    return 0;
+}
